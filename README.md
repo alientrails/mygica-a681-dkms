@@ -15,17 +15,6 @@ Run `sudo ./install-dkms.sh`. The installer creates `/usr/src/mygica-a681-0.1.0`
 
 Run `sudo ./uninstall-dkms.sh` to remove the registered DKMS package.
 
-## Firmware
-
-The driver requires `dvb-demod-mn88436-01.fw`. No firmware blob is included.
-Obtain it from a source authorized to distribute it, then run:
-
-```
-sudo ./install-firmware.sh /path/to/dvb-demod-mn88436-01.fw SHA256
-```
-
-The script verifies the filename and exact SHA-256 checksum before copying it
-to `/lib/firmware`.
 
 ## Validation
 
