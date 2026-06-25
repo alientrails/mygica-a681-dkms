@@ -11,6 +11,13 @@ Also verified on Debian 13 / x86_64, kernel 6.12.86+deb13-amd64.
 
 ## Build and install
 
+Install the packages needed to build DKMS kernel modules:
+
+```sh
+sudo apt update
+sudo apt install dkms build-essential linux-headers-$(uname -r)
+```
+
 Run `sudo ./install-dkms.sh`. The installer creates `/usr/src/mygica-a681-0.1.0`, registers it with DKMS, builds it for the running kernel, installs it, and runs `depmod`.
 
 Run `sudo ./uninstall-dkms.sh` to remove the registered DKMS package.
