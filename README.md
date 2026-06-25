@@ -5,7 +5,7 @@ A681. It supports ATSC 1.0 8-VSB and clear QAM (64/256); it does not support
 ATSC 3.0. It deliberately installs `mygica_a681.ko`, leaving the distro
 `dvb-usb-cxusb` module untouched.
 
-I couldn’t find a maintained driver for the MyGica/Geniatech A681 USB TV Tuner on current Linux kernels, so I created this DKMS-based port with assistance from Codex.
+I couldn’t find a driver for the MyGica/Geniatech A681 USB TV Tuner on current Linux kernels, so I created this DKMS-based port with assistance from Codex.
 
 It was developed and verified on a **Raspberry Pi 5** running **Raspberry Pi OS 64-bit** with **kernel 6.12.75+rpt-rpi-2712**. Also verified on **Debian 13 / x86_64, kernel 6.12.86+deb13-amd64**.
 
