@@ -21,3 +21,49 @@ Run `sudo ./uninstall-dkms.sh` to remove the registered DKMS package.
 After reconnecting the tuner, confirm `mygica_a681` is bound and
 `/dev/dvb/adapter*/frontend0` exists. Use `dmesg -w` during reconnect. An RF
 signal is required to validate a lock and transport-stream capture.
+
+
+## Using the tuner with NextPVR
+
+These steps assume this DKMS driver is already installed and the A681 has been
+unplugged and reconnected.
+
+1. Confirm Linux can see the tuner:
+
+   ```sh
+   ls /dev/dvb/adapter*/frontend0
+   dmesg | grep -i mygica
+   ```
+
+   If no frontend appears, reconnect the tuner and check `dmesg -w` for driver
+   messages before continuing.
+
+2. Install NextPVR from the Linux `.deb` helper package:
+
+   ```sh
+   curl https://nextpvr.com/nextpvr-helper.deb -O
+   sudo apt install ./nextpvr-helper.deb --install-recommends
+   ```
+
+   Wait about 30 seconds for the service to start.
+
+3. Open the NextPVR web app:
+
+   ```text
+   http://127.0.0.1:8866
+   ```
+
+   The default login is `admin` / `password`.
+
+4. Go to `Settings` -> `Devices`. The A681 should appear as a DVB/ATSC tuner.
+   Select the device, choose the tuner type for your signal, then scan:
+
+   - Use `ATSC` for over-the-air antenna channels in North America.
+      - I used us-ATSC-center-frequencies-8VSB
+   - Use `QAM` only for unencrypted cable channels.
+
+5. Save the channels found by the scan, then test one from `Live TV`. After that
+   you can add guide data and set up recordings from the NextPVR interface.
+
+NextPVR's Linux install notes are maintained at
+<https://forums.nextpvr.com/showthread.php?tid=59390>.
