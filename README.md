@@ -7,7 +7,13 @@ ATSC 3.0. It deliberately installs `mygica_a681.ko`, leaving the distro
 
 I couldn’t find a driver for the MyGica/Geniatech A681B USB TV Tuner on current Linux kernels, so I created this DKMS-based port with assistance from Codex.
 
-It was developed and verified on a **Raspberry Pi 5** running **Raspberry Pi OS 64-bit** with **kernel 6.12.75+rpt-rpi-2712**. Also verified on **Debian 13 / x86_64, kernel 6.12.86+deb13-amd64**.
+The following platforms have been tested and verified:
+
+| Device / Platform | Operating System | Architecture | Kernel |
+|---|---|---|---|
+| Raspberry Pi 5 | Raspberry Pi OS 64-bit | aarch64 | `6.12.75+rpt-rpi-2712` |
+| Raspberry Pi 3 | Raspberry Pi OS 64-bit | aarch64 | `6.18.34+rpt-rpi-v8` |
+| Lenovo LOQ 17IRB8 | Debian 13 | x86_64 | `6.12.86+deb13-amd64` |
 
 
 ## Build and install
@@ -67,7 +73,7 @@ unplugged and reconnected.
    Select the device, choose the tuner type for your signal, then scan:
 
    - Use `ATSC` for over-the-air antenna channels in North America.
-      - I used us-ATSC-center-frequencies-8VSB
+      - I used the `atsc-072020-repack-recommended` option
    - Use `QAM` only for unencrypted cable channels.
 
 5. Save the channels found by the scan, then test one from `Live TV`. After that
