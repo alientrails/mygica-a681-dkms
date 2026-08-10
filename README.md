@@ -11,8 +11,8 @@ The following platforms have been tested and verified:
 
 | Device / Platform | Operating System | Architecture | Kernel |
 |---|---|---|---|
-| Raspberry Pi 5 / CM5 | Raspberry Pi OS 64-bit | aarch64 | `6.12.75+rpt-rpi-2712` |
-| Raspberry Pi 4 / CM4 | Raspberry Pi OS 64-bit | aarch64 | `6.18.34+rpt-rpi-v8` |
+| Raspberry Pi 5 / CM5 | Raspberry Pi OS | aarch64 | `6.12.75+rpt-rpi-2712` |
+| Raspberry Pi 4 / CM4 | Raspberry Pi OS | aarch64 | `6.18.34+rpt-rpi-v8` |
 | Raspberry Pi 3 | Raspberry Pi OS 64-bit | aarch64 | `6.18.34+rpt-rpi-v8` |
 | Lenovo LOQ 17IRB8 | Debian 13 | x86_64 | `6.12.86+deb13-amd64` |
 
