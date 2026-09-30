@@ -1356,6 +1356,24 @@ static int cxusb_mygica_a681_frontend_attach(struct dvb_usb_adapter *adap)
 	if (!adap->fe_adap[0].fe)
 		return -EIO;
 
+#ifdef CONFIG_MEDIA_ATTACH
+	/*
+	 * dvb_attach() would have taken a reference on the demodulator's
+	 * module through symbol_get().  The DVB core balances that reference
+	 * with symbol_put_addr(fe->ops.release) when the frontend is detached.
+	 * mndmd_attach() was called directly, so take the reference here.
+	 * Without it every unplug underflows this module's refcount; once it
+	 * reaches zero every open of the /dev/dvb device nodes fails with ENODEV
+	 * and removing the module crashes the kernel.
+	 */
+	if (!try_module_get(THIS_MODULE)) {
+		err("could not take a module reference for the demodulator");
+		adap->fe_adap[0].fe->ops.release(adap->fe_adap[0].fe);
+		adap->fe_adap[0].fe = NULL;
+		return -EIO;
+	}
+#endif
+
 	return 0;
 }
 
